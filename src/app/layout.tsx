@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "Blytz | Your Gaming Identity, Evolved",
   description: "Living Gaming Profiles with real-time stats, API integrations, and premium themes.",
   keywords: ["gaming", "bio link", "stats", "league of legends", "blytz", "gamer profile"],
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({

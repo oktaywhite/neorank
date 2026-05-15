@@ -13,9 +13,8 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 px-6 py-6 flex justify-center">
         <div className="glass px-8 py-3 rounded-full flex items-center justify-between gap-12 border border-white/5 backdrop-blur-xl max-w-6xl w-full">
-          <div className="text-xl font-black tracking-tighter flex items-center gap-2 group cursor-pointer">
-            <div className="w-8 h-8 bg-lime text-black rounded-lg flex items-center justify-center italic group-hover:rotate-12 transition-transform">N</div>
-            BLYTZ
+          <div className="flex items-center gap-2 group cursor-pointer">
+            <img src="/logo.png" alt="Blytz Logo" className="h-8 w-auto group-hover:scale-105 transition-transform" />
           </div>
           <div className="hidden md:flex items-center gap-10 text-[12px] font-bold tracking-[0.2em] text-gray-500">
             <a href="#" className="hover:text-lime transition-colors">FEATURES</a>
@@ -50,7 +49,9 @@ export default function Home() {
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-4 gap-12 mb-16">
             <div className="col-span-1 md:col-span-2">
-              <div className="text-2xl font-black tracking-tighter mb-6">BLYTZ</div>
+              <div className="mb-6">
+                <img src="/logo.png" alt="Blytz Logo" className="h-10 w-auto" />
+              </div>
               <p className="text-gray-500 max-w-sm mb-8 leading-relaxed">
                 Empowering gamers to build their digital legacy across the metaverse. The only living gaming profile you'll ever need.
               </p>
