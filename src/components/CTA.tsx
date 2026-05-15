@@ -30,7 +30,11 @@ export default function CTA() {
         
         {/* Floating Data Nodes */}
         <div className="absolute inset-0 pointer-events-none">
-          {[...Array(3)].map((_, i) => (
+          {[
+            { top: '20%', left: '15%' },
+            { top: '75%', left: '85%' },
+            { top: '45%', left: '40%' }
+          ].map((pos, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0 }}
@@ -38,8 +42,8 @@ export default function CTA() {
               transition={{ duration: 4, repeat: Infinity, delay: i * 0.5 }}
               className="absolute"
               style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
+                top: pos.top,
+                left: pos.left,
               }}
             >
               <div className="flex items-center gap-2 text-[8px] font-black text-lime tracking-widest uppercase bg-black/80 px-2 py-1 border border-lime/20">

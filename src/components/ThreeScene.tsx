@@ -6,7 +6,7 @@ import {
   Float, 
   MeshTransmissionMaterial, 
   Edges, 
-  Box
+  Sphere
 } from '@react-three/drei';
 import { useRef, useState, useEffect } from 'react';
 import * as THREE from 'three';
@@ -29,14 +29,14 @@ function TechArtifact({ isMobile }: { isMobile: boolean }) {
   return (
     <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
       <group ref={groupRef}>
-        <Box ref={coreRef} args={[1.5, 1.5, 1.5]}>
+        <Sphere ref={coreRef} args={[1.5, 64, 64]}>
           {isMobile ? (
             <meshStandardMaterial 
               color="#050505" 
               metalness={0.9} 
               roughness={0.1} 
               emissive="#CCFF00" 
-              emissiveIntensity={0.2} 
+              emissiveIntensity={0.1} 
             />
           ) : (
             <MeshTransmissionMaterial
@@ -54,8 +54,12 @@ function TechArtifact({ isMobile }: { isMobile: boolean }) {
               color="#050505"
             />
           )}
-          <Edges threshold={15} color="#CCFF00" scale={1.05} />
-        </Box>
+        </Sphere>
+
+        {/* Wireframe Overlay */}
+        <Sphere args={[1.51, 32, 32]}>
+          <meshBasicMaterial color="#CCFF00" wireframe transparent opacity={0.15} />
+        </Sphere>
 
         {/* Outer Rotating Rings */}
         <mesh rotation={[Math.PI / 2, 0, 0]}>
@@ -102,7 +106,7 @@ export default function ThreeScene() {
         <Canvas dpr={isMobile ? [1, 1] : [1, 2]}>
           <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={50} />
           <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} intensity={2} color="#CCFF00" />
+          <pointLight position={[10, 10, 10]} intensity={1} color="#CCFF00" />
           <pointLight position={[-10, -10, -10]} intensity={2} color="#FF00FF" />
           
           <TechArtifact isMobile={isMobile} />
